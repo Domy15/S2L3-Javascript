@@ -113,7 +113,7 @@ let charactersNames = [];
   Come risultato dovresti ottenere qualcosa di simile: ["Luke Skywalker", "C-3PO", "R2-D2", etc..]
 */
 
-for(let i = 0; i < starWarsCharacters.length; i++){
+for (let i = 0; i < starWarsCharacters.length; i++) {
   charactersNames.push(starWarsCharacters[i].name);
 };
 
@@ -125,8 +125,8 @@ console.log(charactersNames);
 
 let femaleCharacters = [];
 
-for(i = 0; i < starWarsCharacters.length; i++){
-  if(starWarsCharacters[i].gender === "female"){
+for (i = 0; i < starWarsCharacters.length; i++) {
+  if (starWarsCharacters[i].gender === "female") {
     femaleCharacters.push(starWarsCharacters[i]);
   };
 };
@@ -151,8 +151,8 @@ let eyeColor = {
   Ogni personaggio dovrà finire nell'array corrispondente al suo colore degli occhi (al valore della sua proprietà "eye_color").
 */
 
-for(i = 0; i < starWarsCharacters.length; i++){
-  switch(starWarsCharacters[i].eye_color){
+for (i = 0; i < starWarsCharacters.length; i++) {
+  switch (starWarsCharacters[i].eye_color) {
     case "blue":
       eyeColor.blue.push(starWarsCharacters[i]);
       break;
@@ -183,9 +183,9 @@ console.log(eyeColor);
 
 let crewMass = 0;
 
-i=0
+i = 0
 
-while(i < starWarsCharacters.length){
+while (i < starWarsCharacters.length) {
   crewMass += starWarsCharacters[i].mass;
   i++;
 };
@@ -204,15 +204,15 @@ console.log(crewMass);
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
 
-if(crewMass<500){
+if (crewMass < 500) {
   console.log("Ship is under loaded");
-}else if(crewMass>500 && crewMass<700){
+} else if (crewMass > 500 && crewMass < 700) {
   console.log("Ship is half loaded");
-}else if(crewMass>700 && crewMass<900){
+} else if (crewMass > 700 && crewMass < 900) {
   console.log("Warning: Load is over 700");
-}else if(crewMass>900 && crewMass<1000){
+} else if (crewMass > 900 && crewMass < 1000) {
   console.log("Critical Load: Over 900");
-}else if(crewMass>1000){
+} else if (crewMass > 1000) {
   console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
 };
 
@@ -220,8 +220,8 @@ if(crewMass<500){
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
 
-for(i = 0; i < starWarsCharacters.length; i++){
-  if(starWarsCharacters[i].gender === "n/a"){
+for (i = 0; i < starWarsCharacters.length; i++) {
+  if (starWarsCharacters[i].gender === "n/a") {
     starWarsCharacters[i].gender = "robot"
   };
 };
@@ -233,20 +233,39 @@ console.log(starWarsCharacters[1].gender, starWarsCharacters[2].gender, starWars
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
 
-for(i = 0; i < charactersNames.length; i++){
-  for(let a = 0; a < femaleCharacters.length; a++){
-    if(charactersNames[i] === femaleCharacters[a].name){
-      delete charactersNames[i];
+console.log(charactersNames.length);
+
+for (i = 0; i < charactersNames.length; i++) {
+  for (let a = 0; a < femaleCharacters.length; a++) {
+    if (charactersNames[i] === femaleCharacters[a].name) {
+      charactersNames.splice(i, 1);
     };
-  };  
+  };
 };
 
-console.log(charactersNames);
+console.log(charactersNames.length);
 
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
 
 let random = starWarsCharacters[Math.floor(Math.random() * starWarsCharacters.length)];
-console.log("I'm", random.name, "and I'm born in", random.birth_year, "as a", random.gender, ", I'm", random.height, "cm with", random.skin_color, "skin and I have two big", random.eye_color,
-   "eyes. My hair color is", random.hair_color, "and", random.mass, "is my weight.");
+console.log(
+  "I'm", 
+  random.name,
+  "and I'm born in",
+  random.birth_year,
+  "as a",
+  random.gender,
+  ", I'm",
+  random.height,
+  "cm with",
+  random.skin_color,
+  "skin and I have two big",
+  random.eye_color,
+  "eyes. My hair color is",
+  random.hair_color, 
+  "and",
+  random.mass,
+  "is my weight."
+);
